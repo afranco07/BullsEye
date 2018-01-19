@@ -35,11 +35,13 @@ class ViewController: UIViewController {
         setRandomTarget()
         let message = "Put the Bull's eye as close as you can to: "
         targetNumberLabel.text = "\(message)\(targetNumber)"
+        targetNumberLabel.sizeToFit()
     }
     
     func setRoundNumber() {
         let label = "Round: "
         roundLabel.text = "\(label)\(roundNumber)"
+        roundLabel.sizeToFit()
     }
 
 
