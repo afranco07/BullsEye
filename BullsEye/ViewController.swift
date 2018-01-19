@@ -13,14 +13,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var targetNumberLabel: UILabel!
     @IBOutlet weak var valueSlider: UISlider!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    var currentScore: Int = 0
     var targetNumber : Int = 0
     var roundNumber : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        setTargetAndLabel();
+        setTargetAndLabel()
         setRoundNumber()
+        setScoreLabel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +63,7 @@ class ViewController: UIViewController {
         winMessage.addAction(UIAlertAction(title: "Next Round!", style: .default, handler: nil))
         self.present(winMessage, animated: true)
         roundNumber = roundNumber + 1
+        increaseScore()
         setRoundNumber()
     }
     
@@ -67,6 +72,23 @@ class ViewController: UIViewController {
         loseMessage.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
         loseMessage.addAction(UIAlertAction(title: "New Game", style: .default, handler: nil))
         self.present(loseMessage, animated: true)
+        decreaseScore()
+    }
+    
+    func setScoreLabel() {
+        let label = "Score: "
+        scoreLabel.text = "\(label)\(currentScore)"
+        scoreLabel.sizeToFit()
+    }
+    
+    func increaseScore() {
+        currentScore = currentScore + 10
+        setScoreLabel()
+    }
+    
+    func decreaseScore() {
+        currentScore = currentScore - 10
+        setScoreLabel()
     }
 
 

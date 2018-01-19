@@ -61,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="roundLabel" destination="Tx8-Uz-39F" id="54P-g2-yQ5"/>
+                        <outlet property="scoreLabel" destination="7WE-EL-Je2" id="o0b-TP-92c"/>
                         <outlet property="targetNumberLabel" destination="dtt-8g-5Ig" id="Rh9-sm-YcC"/>
                         <outlet property="valueSlider" destination="Frp-1B-a7N" id="5pT-lp-3Tc"/>
                     </connections>
