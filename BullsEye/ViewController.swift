@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var targetNumberLabel: UILabel!
+    @IBOutlet weak var valueSlider: UISlider!
     var targetNumber : Int = 0
     var roundNumber : Int = 1
     
@@ -25,6 +26,15 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func hitMeButton(_ sender: UIButton) {
+        print(valueSlider.value)
+        if (Int(valueSlider.value) == targetNumber) {
+            winAlertMessage()
+        } else {
+            loseAlertMessage()
+        }
     }
     
     func setRandomTarget() {
@@ -42,6 +52,21 @@ class ViewController: UIViewController {
         let label = "Round: "
         roundLabel.text = "\(label)\(roundNumber)"
         roundLabel.sizeToFit()
+    }
+    
+    func winAlertMessage() {
+        let winMessage = UIAlertController(title: "Winner!", message: "You guessed correctly! Score increased!", preferredStyle: .alert)
+        winMessage.addAction(UIAlertAction(title: "Next Round!", style: .default, handler: nil))
+        self.present(winMessage, animated: true)
+        roundNumber = roundNumber + 1
+        setRoundNumber()
+    }
+    
+    func loseAlertMessage() {
+        let loseMessage = UIAlertController(title: "Loser!", message: "Wrong! You guessed \(Int(valueSlider.value))", preferredStyle: .alert)
+        loseMessage.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+        loseMessage.addAction(UIAlertAction(title: "New Game", style: .default, handler: nil))
+        self.present(loseMessage, animated: true)
     }
 
 
