@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         roundNumber = roundNumber + 1
         increaseScore()
         setRoundNumber()
+        setTargetAndLabel()
     }
     
     func loseAlertMessage() {
@@ -73,6 +74,7 @@ class ViewController: UIViewController {
         loseMessage.addAction(UIAlertAction(title: "New Game", style: .default, handler: nil))
         self.present(loseMessage, animated: true)
         decreaseScore()
+        setTargetAndLabel()
     }
     
     func setScoreLabel() {
