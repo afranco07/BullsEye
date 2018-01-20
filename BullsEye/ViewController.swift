@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         setRoundNumber()
         setTargetAndLabel()
     }
+    
     func setRandomTarget() {
         targetNumber = Int(arc4random_uniform(101))
     }
@@ -73,6 +74,13 @@ class ViewController: UIViewController {
         increaseScore()
         setRoundNumber()
         setTargetAndLabel()
+    }
+    
+    @IBAction func aboutButton(_ sender: UIButton) {
+        let bodyContent = "My name is Alberto! See the code for this project under my GitHub @afranco07"
+        let aboutMessage = UIAlertController(title: "About Alberto", message: bodyContent, preferredStyle: .alert)
+        aboutMessage.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        self.present(aboutMessage, animated: true)
     }
     
     func loseAlertMessage() {
