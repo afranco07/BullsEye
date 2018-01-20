@@ -41,6 +41,13 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func resetButton(_ sender: UIButton) {
+        currentScore = 0
+        setScoreLabel()
+        roundNumber = 1
+        setRoundNumber()
+        setTargetAndLabel()
+    }
     func setRandomTarget() {
         targetNumber = Int(arc4random_uniform(101))
     }
