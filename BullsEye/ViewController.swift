@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func hitMeButton(_ sender: UIButton) {
-        print(valueSlider.value)
         if (Int(valueSlider.value) == targetNumber) {
             winAlertMessage()
         } else {
